@@ -12,12 +12,12 @@ public class NameController {
     @Autowired
     NameService nameService;
 
-    @GetMapping("/get-name")
+    @GetMapping("/name")
     public String getName(){
         return nameService.getName().toString();
     }
 
-    @PostMapping("/get-name")
+    @PostMapping("/name")
     public String postName(){
         return nameService.getName().reverse().toString();
     }

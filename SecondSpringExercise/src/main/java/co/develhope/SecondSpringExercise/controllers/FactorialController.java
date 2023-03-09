@@ -10,7 +10,7 @@ public class FactorialController {
     @Autowired
     FactorialService factorialService;
 
-    @GetMapping("/get-factorial")
+    @GetMapping("/factorial")
     public Integer getFactorial(@RequestParam Integer number){
         factorialService.setNumber(number);
         return factorialService.calculateFactorial();
