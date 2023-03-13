@@ -6,16 +6,24 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("/cars")
 public class CarController {
 
-    @GetMapping("/cars")
-    public CarDTO getCar(){
-        return new CarDTO();
+    @GetMapping("")
+    public CarDTO getCar(@RequestParam String id, @RequestParam String modelName, @RequestParam Double price){
+        return new CarDTO(id, modelName, price);
     }
 
-    @PostMapping("/cars")
-    public String postCar(@Valid @RequestBody String json){
-        System.out.println(json);
+    /*
+    @GetMapping("")
+    public CarDTO getCar(){
+        return new CarDTO();
+    }*/
+
+    @PostMapping("")
+    public String postCar(@Valid @RequestBody CarDTO car){
+        //System.out.println(new ResponseEntity<>(car, HttpStatus.CREATED));
+        System.out.println(car);
         return "Creation successful!";
     }
 
