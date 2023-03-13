@@ -3,6 +3,8 @@ package co.develhope.firstapi5.controllers;
 import co.develhope.firstapi5.DTO.CarDTO;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class CarController {
 
@@ -12,7 +14,7 @@ public class CarController {
     }
 
     @PostMapping("/cars")
-    public String postCar(@RequestBody String json){
+    public String postCar(@Valid @RequestBody String json){
         System.out.println(json);
         return "Creation successful!";
     }

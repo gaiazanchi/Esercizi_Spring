@@ -17,12 +17,12 @@ public class HeaderService {
     private String port;
 
     public String getPort() {
-        if (port == null) port = environment.getProperty("local.server.port");
+        port = environment.getProperty("local.server.port");
         return port;
     }
 
     public String getHost() throws UnknownHostException {
-        if (host == null) host = InetAddress.getLocalHost().getHostName();
+        host = InetAddress.getLocalHost().getHostName();
         return host;
     }
 
