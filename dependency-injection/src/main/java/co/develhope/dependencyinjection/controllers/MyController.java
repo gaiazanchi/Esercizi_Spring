@@ -9,6 +9,7 @@ public class MyController {
 
     private MyService service;
 
+    //perchè qua non c'è auto-wired?
     public MyController(MyService service) {
         System.out.println("MyController constructor has been called");
         this.service = service;

@@ -7,6 +7,7 @@ public class MyComponent {
 
     private String myComponentName;
 
+    //nessun auto-wired, componenet viene creato a inizializzazione con costruttore vuoto!
     public MyComponent(){
         System.out.println("MyComponent constructor has been called");
         this.myComponentName = "Karl Leeds";
