@@ -1,7 +1,10 @@
 package co.develhope.firstapi5.controllers;
 
 import co.develhope.firstapi5.DTO.CarDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpStatusCodeException;
 
 import javax.validation.Valid;
 
@@ -9,22 +12,15 @@ import javax.validation.Valid;
 @RequestMapping("/cars")
 public class CarController {
 
-    @GetMapping("")
+    @GetMapping
     public CarDTO getCar(@RequestParam String id, @RequestParam String modelName, @RequestParam Double price){
         return new CarDTO(id, modelName, price);
     }
 
-    /*
-    @GetMapping("")
-    public CarDTO getCar(){
-        return new CarDTO();
-    }*/
-
-    @PostMapping("")
-    public String postCar(@Valid @RequestBody CarDTO car){
-        //System.out.println(new ResponseEntity<>(car, HttpStatus.CREATED));
+    @PostMapping
+    public ResponseEntity postCar(@Valid @RequestBody CarDTO car){
         System.out.println(car);
-        return "Creation successful!";
+        return ResponseEntity.status(HttpStatus.CREATED).body("OK, creation successful!");
     }
 
 }

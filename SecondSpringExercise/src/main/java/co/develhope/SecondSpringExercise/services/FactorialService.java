@@ -18,7 +18,7 @@ public class FactorialService {
     public Integer calculateFactorial(){
         Integer fact = 1;
         for(int i = 1; i <= this.number; i++){
-            fact=fact*i;
+            fact = fact * i;
         }
         return fact;
     }

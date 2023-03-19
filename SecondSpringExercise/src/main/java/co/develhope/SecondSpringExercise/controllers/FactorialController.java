@@ -5,14 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/factorial")
 public class FactorialController {
 
     @Autowired
     FactorialService factorialService;
 
-    @GetMapping("/factorial")
-    public Integer getFactorial(@RequestParam Integer number){
-        factorialService.setNumber(number);
+    @GetMapping("/{n}")
+    public Integer getFactorial(@PathVariable Integer n){
+        factorialService.setNumber(n);
         return factorialService.calculateFactorial();
     }
 
