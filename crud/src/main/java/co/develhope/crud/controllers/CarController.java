@@ -2,7 +2,10 @@ package co.develhope.crud.controllers;
 
 import co.develhope.crud.entities.Car;
 import co.develhope.crud.repositories.CarRepository;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +37,7 @@ public class CarController {
         }
     }
     
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public Car changeCarType(@PathVariable Integer id, @RequestParam String type){
         if(!carRepository.existsById(id)){
             return new Car();
@@ -47,8 +50,12 @@ public class CarController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCarById(@PathVariable Integer id){
+    public ResponseEntity deleteCarById(@PathVariable Integer id){
+        if(!carRepository.existsById(id)){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Id not found");
+        }
         carRepository.deleteById(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("");
     }
 
     @DeleteMapping()
