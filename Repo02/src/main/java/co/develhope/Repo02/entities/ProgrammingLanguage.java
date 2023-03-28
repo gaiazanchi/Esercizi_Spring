@@ -9,7 +9,7 @@ import java.time.Year;
 public class ProgrammingLanguage {
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
     @Column(nullable = false)
     private String name;
     private Year firstAppearance;
@@ -18,18 +18,17 @@ public class ProgrammingLanguage {
 
     public ProgrammingLanguage(){}
 
-    public ProgrammingLanguage(Integer id, String name, Year firstAppearance, String inventor) {
-        this.id = id;
+    public ProgrammingLanguage(String name, Year firstAppearance, String inventor) {
         this.name = name;
         this.firstAppearance = firstAppearance;
         this.inventor = inventor;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
