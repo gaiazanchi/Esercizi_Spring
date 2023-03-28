@@ -25,7 +25,7 @@ public class MonthInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String monthNumberString = request.getHeader("monthNumber");
-        if(monthNumberString == null){
+        if(monthNumberString == null || monthNumberString == ""){
             response.setStatus(400);
             return false;
         }else{
