@@ -12,7 +12,7 @@ public class Flight {
     private String description;
     private String fromAirport;
     private String toAirport;
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     public Flight(){}
