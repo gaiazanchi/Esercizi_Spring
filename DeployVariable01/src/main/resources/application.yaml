@@ -1,1 +1,5 @@
-
+myCustomVar:
+  authCode: xyz458
+  devName: Gaia Zanchi
+server:
+  port: 4500
