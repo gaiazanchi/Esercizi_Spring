@@ -12,17 +12,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EmailService {
     @Autowired
-    private final JavaMailSender javaMailSender;
+    private JavaMailSender javaMailSender;
 
     @Async
     public void sendTo(String email, String title, String text) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         message.setFrom("gaia.zanchi2001@gmail.com");
         message.setRecipients(MimeMessage.RecipientType.TO, email);
-        message.setSubject(title);
-
         String htmlContent = "<h1>Buongiorno!</h1>" +
-                "<h2> Come va? </h2>" +
+                "<h2>" + title + "</h2>" +
                 "<h3>" + text + "</h3>" +
                 "<img src=\"https://dalmiocuore.it/image/uploads/che-la-vita-vi-sorrida.jpg\" width=\"500\" height=\"600\">";
         message.setContent(htmlContent, "text/html; charset=utf-8");
